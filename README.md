@@ -15,7 +15,7 @@ import "github.com/moonlightpe/go-tebex"
 
 func main() {
 	session, err := go-tebex.New("API KEY")
-	if err !- nil {
+	if err != nil {
 		panic(err)
 	}
 	info, err := session.GetInformation()

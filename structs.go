@@ -51,6 +51,35 @@ type Player []struct {
 
 type Players = Player
 
+type OfflineQueue struct {
+	Meta struct {
+		Limited bool `json:"limited"`
+	} `json:"meta"`
+	Commands []struct {
+		ID         int    `json:"id"`
+		Command    string `json:"command"`
+		Payment    int    `json:"payment"`
+		Package    int    `json:"package"`
+		Conditions struct {
+			Delay int `json:"delay"`
+		} `json:"conditions"`
+		Player Player `json:"player"`
+	} `json:"commands"`
+}
+
+type OnlineQueue struct {
+	Commands []struct {
+		ID         int    `json:"id"`
+		Command    string `json:"command"`
+		Payment    int    `json:"payment"`
+		Package    int    `json:"package"`
+		Conditions struct {
+			Delay int `json:"delay"`
+			Slots int `json:"slots"`
+		} `json:"conditions"`
+	} `json:"commands"`
+}
+
 type Listings struct {
 	Categories []struct {
 		ID                int           `json:"id"`

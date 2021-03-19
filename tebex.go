@@ -22,12 +22,12 @@ func (s Session) dial(endpoint string, request string, data []byte) (body []byte
 	req, _ := http.NewRequest("GET", TebexURL+endpoint, nil)
 
 	switch {
-	case request == "post":
+	case request == "POST":
 		req, _ = http.NewRequest("POST", TebexURL+endpoint, bytes.NewBuffer(data))
-	case request == "patch":
+	case request == "PATCH":
 		req, _ = http.NewRequest("PATCH", TebexURL+endpoint, bytes.NewBuffer(data))
-	case request == "delete":
-		req, _ = http.NewRequest("DELETE", TebexURL+endpoint, nil)
+	case request == "DELETE":
+		req, _ = http.NewRequest("DELETE", TebexURL+endpoint, bytes.NewBuffer(data))
 	default:
 	}
 
